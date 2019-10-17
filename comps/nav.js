@@ -38,33 +38,6 @@ const Nav = () => (
 				</li>
 			))} */}
 		</ul>
-
-		<style jsx>{`
-			:global(body) {
-				margin: 0;
-				font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
-			}
-			nav {
-        text-align: center;
-        background-color: black;
-			}
-			ul {
-				display: flex;
-				justify-content: flex-start;
-			}
-			nav > ul {
-				padding: 4px 16px;
-			}
-			li {
-				display: flex;
-				padding: 6px 30px;
-			}
-			a {
-				color: #fff;
-				text-decoration: none;
-				font-size: 18px;
-			}
-		`}</style>
 	</nav>
 );
 

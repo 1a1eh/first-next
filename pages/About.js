@@ -1,12 +1,10 @@
-import React from 'react';
-import Nav from '../comps/nav';
 
-const About = () => {
-	return (
-		<div>
-			About
-		</div>
-	);
-};
+import Layout from '../components/Layout';
 
-export default About;
+export default function About() {
+  return (
+    <Layout>
+      <p>This is the about page</p>
+    </Layout>
+  );
+}

@@ -1,13 +1,17 @@
 import Link from 'next/link';
 
 const linkStyle = {
-  marginRight: 15,
+  marginRight: 50,
   color: "green",
   textDecoration: "none"
 };
 
+const nav = {
+  textAlign: 'center'
+}
+
 const Header = () => (
-  <div>
+  <div style={nav}>
     <Link href="/">
       <a style={linkStyle}>Home</a>
     </Link>

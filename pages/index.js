@@ -1,21 +1,32 @@
-import { useRouter } from 'next/router';
-import Layout from '../components/Layout.js';
-import './style.css';
+import Layout from '../components/MyLayout';
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+import axios from 'axios';
 
-const Content = () => {
-  const router = useRouter();
-  return (
-    <>
-      <h1>{router.query.title}</h1>
-      <p>This is the blog post contensdasdawsdet.</p>
-    </>
-  );
-};
-
-const Page = () => (
+const Index = props => (
   <Layout>
-    <Content />
+    <h1>Batman TV Shows</h1>
+    <ul>
+      {props.shows.map(show => (
+        <li key={show.id}>
+          <Link href="/p/[id]" as={`/p/${show.id}`}>
+            <a>{show.name}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
   </Layout>
 );
 
-export default Page;
+Index.getInitialProps = async function() {
+  const res = await axios('https://api.tvmaze.com/search/shows?q=batman');
+  const data = await res.json();
+
+  console.log(`Show data fetched. Count: ${data.length}`);
+
+  return {
+    shows: data.map(entry => entry.show)
+  };
+};
+
+export default Index;

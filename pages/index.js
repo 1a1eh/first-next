@@ -1,7 +1,6 @@
 import Layout from '../components/MyLayout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import axios from 'axios';
 
 const Index = props => (
   <Layout>
@@ -19,7 +18,7 @@ const Index = props => (
 );
 
 Index.getInitialProps = async function() {
-  const res = await axios('https://api.tvmaze.com/search/shows?q=batman');
+  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
   const data = await res.json();
 
   console.log(`Show data fetched. Count: ${data.length}`);

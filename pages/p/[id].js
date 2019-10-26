@@ -1,6 +1,5 @@
 import Layout from '../../components/MyLayout';
 import fetch from 'isomorphic-unfetch';
-import axios from 'axios';
 
 const Post = props => (
   <Layout>
@@ -12,7 +11,7 @@ const Post = props => (
 
 Post.getInitialProps = async function(context) {
   const { id } = context.query;
-  const res = await axios(`https://api.tvmaze.com/shows/${id}`);
+  const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const show = await res.json();
 
   console.log(`Fetched show: ${show.name}`);

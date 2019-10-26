@@ -1,31 +1,43 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import fetch from 'isomorphic-unfetch';
+// import fetch from 'isomorphic-unfetch';
+import axios from 'axios';
 
-const About = props => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(show => (
-        <li key={show.id}>
-          <Link href="/p/[id]" as={`/p/${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </Layout>
-);
+class About extends React.Component {
+	state = {
+		todos: []
+	};
+	componentDidMount() {
+		this.laleh();
+	}
+	laleh = async () => {
+		const res = await axios('https://jsonplaceholder.typicode.com/todos');
+		// const data = await res.json();
 
-About.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
+		// console.log(`Show data fetched. Count: ${data.length}`);
+		this.setState({ todos: res.data });
+		console.log(this.state);
 
-  console.log(`Show data fetched. Count: ${data.length}`);
-
-  return {
-    shows: data.map(entry => entry.show)
-  };
-};
+		// return {
+		//   shows: data.map(entry => entry.show)
+		// };
+	};
+	render() {
+		return (
+			<Layout>
+				<h1>Batman TV Shows</h1>
+				<ul>
+					{this.state.todos.map((item) => (
+						<li key={item.id}>
+							<Link href="/todos/[id]" as={`/todos/${item.id}`}>
+								<a>{item.title}</a>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</Layout>
+		);
+	}
+}
 
 export default About;

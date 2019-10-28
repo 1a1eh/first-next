@@ -1,31 +1,32 @@
-import Layout from '../components/MyLayout';
+import React from 'react';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import Layout from '../components/MyLayout';
 
-const Index = props => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(show => (
-        <li key={show.id}>
-          <Link href="/p/[id]" as={`/p/${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </Layout>
-);
+function Index(props) {
+	return (
+		<Layout>
+			<div>
+        <h1>List</h1>
+				<ul>
+					{props.items.map((item) => (
+						<li key={item.id}>
+							<Link href="/p/[id]" as={`/p/${item.id}`}>
+								<a>{item.title}</a>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</div>
+		</Layout>
+	);
+}
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
-
-  console.log(`Show data fetched. Count: ${data.length}`);
-
-  return {
-    shows: data.map(entry => entry.show)
-  };
+Index.getInitialProps = async () => {
+	const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+	const json = await res.json(); // better use it inside try .. catch
+	console.log(json);
+	return { items: json };
 };
 
 export default Index;

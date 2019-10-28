@@ -1,5 +1,17 @@
 body {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 1000;
-  text-align: center;
+  background: silver;
+}
+
+.green {
+  color:green;
+}
+ul {
+  list-style: square;
+  color: #696969;
+}
+ul li a {
+  color: #696969;
+  text-decoration: none;
 }

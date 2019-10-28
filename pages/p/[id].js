@@ -1,10 +1,11 @@
 import Layout from '../../components/MyLayout';
 import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
+import '../style.css';
 
-const Post = (props) => (
+const Post = ({show}) => (
 	<Layout>
-		<h1>{props.show.title}</h1>
+    <h4 className="green">ID: (( {show.id} ))</h4>
+		<p>{show.title}</p>
 	</Layout>
 );
 

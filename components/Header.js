@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 const linkStyle = {
   marginRight: 30,
+  fontWeight: 1000,
   textDecoration: "none",
   color: "black"
 };

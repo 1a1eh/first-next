@@ -3,8 +3,8 @@ import Header from './Header';
 const layoutStyle = {
   margin: '80px auto',
   width: 1000,
-  padding: 20,
-  border: '1px black solid'
+  padding: 60,
+  border: '4px #696969 dotted'
 };
 
 const Layout = props => (

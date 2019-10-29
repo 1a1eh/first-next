@@ -1,14 +1,12 @@
 body {
   font-size: 22px;
-  font-weight: 1000;
-  background: silver;
+  background: #e9acf178;
 }
 
 .green {
-  color:green;
+  color:darkgreen;
 }
 ul {
-  list-style: square;
   color: #696969;
 }
 ul li a {

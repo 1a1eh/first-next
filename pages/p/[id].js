@@ -6,7 +6,7 @@ class Post extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<p className="green">ID: (( {this.props.show.id} ))</p>
+				<i className="green">ID: (( {this.props.show.id} ))</i>
 				<p>{this.props.show.title}</p>
 			</Layout>
 		);

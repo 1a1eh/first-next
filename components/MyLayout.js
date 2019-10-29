@@ -4,7 +4,7 @@ const layoutStyle = {
   margin: '80px auto',
   width: 1000,
   padding: 60,
-  border: '4px #696969 dotted'
+  border: '4px #742090 dotted'
 };
 
 const Layout = props => (

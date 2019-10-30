@@ -1,6 +1,7 @@
 import Layout from '../../components/MyLayout';
 import fetch from 'isomorphic-unfetch';
 class Todos extends React.Component {
+  
 	static async getInitialProps(context) {
 		const { id } = context.query;
 		const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);

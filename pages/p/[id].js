@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import '../style.css';
 
 class Post extends React.Component {
+	
 	static async getInitialProps(context) {
 		const { id } = context.query;
 		const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
@@ -10,7 +11,7 @@ class Post extends React.Component {
 
 		return { show };
 	};
-	
+
 	render() {
 		const { show } = this.props;
 		return (
